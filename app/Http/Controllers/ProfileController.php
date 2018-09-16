@@ -1,4 +1,4 @@
-<?php
+<?php 
 
 namespace App\Http\Controllers;
 
@@ -28,6 +28,9 @@ class ProfileController extends Controller
         return view ('user.profile', compact('projects'));
         
     }
+
+
+
 
     /**
      * Show the form for creating a new resource.

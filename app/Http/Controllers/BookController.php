@@ -20,8 +20,14 @@ class BookController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+
+        if ($request->ajax()) {
+  $data =  $current_userid = \Auth::user();
+        return $data;
+            
+        }
         // SELECT units.number As unit_num ,units.price AS unit_price , units.size As unit_size ,projects.name  As project_name ,compounds.name As compound_name ,compounds.location As compound_location, buildings.number As building_num from projects 
         // JOIN compounds ON projects.id = compounds.project_id
         // JOIN buildings ON compounds.id = buildings.compound_id 
@@ -39,15 +45,14 @@ class BookController extends Controller
         return view ('user.profile', compact('projects','book_unit'));
 
 */
+        $current_userid = \Auth::user()->id;
     $projects=Project::with('compound')->get();
-    $current_userid = \Auth::user()->id;
 
 //    $user =DB::table('users')
 //    ->select('users.name','users.email')
 //    ->where('users.id',$current_userid)
 //    ->get();
 //
-    $user=User::where('users.id',$current_userid)->get();
 
     $book_unit=DB::table('projects')
     ->join('compounds','projects.id','=','compounds.project_id')
@@ -59,7 +64,7 @@ class BookController extends Controller
     ->get();
 
 
-    return view ('user.profile', compact('projects','book_unit','user'));
+    return view ('user.profile', compact('projects','book_unit'));
     }
 
     /**

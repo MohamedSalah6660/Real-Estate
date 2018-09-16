@@ -21,7 +21,7 @@ Edit Unit
 
 <div class="content-header">
         <h1>
-Add Compound
+Edit Unit
         </h1>
         <ol class="breadcrumb">
           <li><a href="{{ url('/adminpanel') }}"><i class="fa fa-dashboard"></i> Home</a></li>

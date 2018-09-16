@@ -4,22 +4,46 @@
 My Profile
 @endsection
 
-
+ 
 
 
 @section('content')
 <div class="container">
-@foreach ($user as $key => $user)
 
-<div style="margin-left:30px; margin-top:50px; text-align:center">
-        <h1>Welcome To Your Profile </h1>
-        <h2 style="color:#00c94a">Name  :<span>{{$user->name}}</span></h2> 
-        <h2>Email :<span>{{$user->email}}</span></h2>
-           
+  <script>
+    
+  $(document).on('click', '.info', function(){
 
+    $.ajax({
 
-</div>
-  @endforeach
+      url :'{{ URL::current() }}',
+      type:'get',
+      datatype:'json',
+      data:{},
+      success: function(data){
+
+                  $(".name").text('My Name is :'+data.name);
+                  $(".email").text('My Email is :'+data.email);
+
+      }
+
+    });
+    return false;
+
+  });
+
+  </script>
+ 
+
+<center>
+  <a href="#" class=" info btn btn-primary" style="margin-top: 100px" >My Information</a>
+</center>
+
+   <h1 style="text-align: center; margin-left: 50px; color: green" class="name"  >
+</h1>
+   <h1 style="text-align: center; margin-left: 50px; color: green"class="email" >
+</h1>
+
 
 <br>
 <hr>

@@ -23,7 +23,7 @@ class UnitController extends Controller
      */
     public function index(Request $request)
     {
-        $unit = Unit::orderBy('id','DESC')->paginate(200);
+        $unit = Unit::orderBy('id','DESC')->paginate(20);
         
                 return view('admin.unit.index',compact('unit'))
         

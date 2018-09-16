@@ -142,6 +142,7 @@ Route::get('/profile', 'ProfileController@index')->name('profile');
 
 
 
+
 Route::get('showproject/{project_name}', 'ProjectController@showDetailsPro')->name('showproject');
 Route::get('showcompound/{compound_name}', 'CompoundController@showDetailsCom')->name('showcompound');
 Route::get('/showunits/{compound_name}/{building_number}/{unit_number}', 'UnitController@showDetailsUnit')->name('showunits');
